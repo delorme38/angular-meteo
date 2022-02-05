@@ -1,0 +1,39 @@
+<h2 class="shadow h2 text-center mt-3 bg-dark text-light text-uppercase mb-4 p-2"> meteo actuelle</h2>
+<div class="container col-4">
+  <div class="card m-2 shadow-lg bg-primary">
+    <div class="card-body text-white p-0">
+      <ul class="list-group">
+        <li class="list-group-item active">
+          <h2 class="h2 text-uppercase"> {{villes}}</h2>
+        </li>
+        <li class="list-group-item">
+          <h6>Temperature:</h6> <span class="float-end">{{ data[0].weather[0].hourly[0].tempC }}C
+            (ressentie {{
+            data[0].current_condition[0].FeelsLikeC }}C)</span>
+        </li>
+        <li class="list-group-item">
+          <h6>Conditions:</h6> <span class="float-end">{{
+            data[0].current_condition[0].weatherDesc[0].value
+            }}</span>
+        </li>
+        <li class="list-group-item">
+          <h6>Vents:</h6> <span class="float-end">{{data[0].current_condition[0].windspeedKmph}}Km/h
+          </span>
+        </li>
+        <li class="list-group-item">
+          <h6>Visibilité:</h6> <span class="float-end">{{data[0].current_condition[0].visibility}}Km</span>
+        </li>
+        <li class="list-group-item">
+          <h6>Humidité:</h6><span class="float-end">{{data[0].current_condition[0].humidity}}%</span>
+        </li>
+        <li class="list-group-item">
+          <h6>Précipitations:</h6> <span class="float-end">{{data[0].current_condition[0].precipMM}}
+            mm</span>
+        </li>
+        <small class="small">Dernière observation:
+          {{data[0].current_condition[0].localObsDateTime}}<span class="float-end"></span></small>
+      </ul>
+    </div>
+  </div>
+</div>
+
