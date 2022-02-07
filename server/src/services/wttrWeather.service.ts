@@ -26,8 +26,9 @@ export class wttrWeatherService implements WeatherProvider{
     
     //Retourne la météo pour une ville
     async readWeather(location: string): Promise<JSON> {
-        const response: Response = await fetch(`${base}/${location}?format=j1&lang=fr`);
-        return await response.json();
+        const response: any = await (await fetch(`${base}/${location}?format=j1&lang=fr`)).json();
+        response.ville = location;  //j'ai mit un type any au lieu de Response parceque je n'arrive pas a manipuler mon json sinon
+        return response;
     }
 
 }

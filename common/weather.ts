@@ -142,5 +142,6 @@ export interface WttrObject {
     nearest_area: NearestArea[];
     request: Request[];
     weather: Weather[];
+    ville?: string[];
 }
 
