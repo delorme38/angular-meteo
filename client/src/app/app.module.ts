@@ -15,6 +15,7 @@ import { Prev3joursComponent } from './prev3jours/prev3jours.component';
 import { PrevHeuresComponent } from './prev-heures/prev-heures.component';
 import { MatCardModule } from '@angular/material/card';
 import { PrevActuelleComponent } from './prev-actuelle/prev-actuelle.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { PrevActuelleComponent } from './prev-actuelle/prev-actuelle.component';
     Prev3joursComponent,
     PrevHeuresComponent,
     PrevActuelleComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

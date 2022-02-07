@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { WeatherService } from '../weather.service';
 import { WttrObject, Weather } from '../../../../common/weather';
-import { Observable } from 'rxjs';
+import { Head, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -13,7 +13,7 @@ export class MeteoComponent implements OnInit {
 
   constructor(private _weatherService: WeatherService) { }
 
-  public data: WttrObject[] = [];
+  @Input() public data: WttrObject[] = [];
   public villes: string[] = [environment.defaultLocation];
 
   ngOnInit(): void {
