@@ -1,11 +1,14 @@
-<div class="row justify-content-md-center">
-    <div *ngFor="let a of weathers" class="col-3 card m-2 shadow-lg bg-primary">
+<!-- <h2 class=" shadow h2 text-center mt-3 bg-dark text-light text-uppercase m-0 p-2"> Prochains Jours:</h2>
+    
 
-      <div class="card-body text-white">
-        <h4>{{a.date}}</h4>
+  <div *ngFor="let i of data" class="row justify-content-md-center">
+    <h2 class=" shadow h2 text-center mt-3 bg-dark text-light text-uppercase m-0 p-2"> {{ i.ville }}</h2>
+    <div *ngFor="let a of i.weather" class="col-3 card m-2 shadow-lg bg-primary">
+      <div class="card-body text-white mt-3">
+        <h4 class="h4 text-center">{{a.date}}</h4>
         <ul class="list-group">
           <li class="list-group-item active">
-            <h2 class="h2 text-uppercase"> Ville</h2>
+            
           </li>
           <li class="list-group-item">
             <h6>Moyenne:</h6> <span class="float-end">{{ a.avgtempC }}C </span>
@@ -25,4 +28,43 @@
         </ul>
       </div>
     </div>
-  </div>
+  </div> -->
+
+  <section *ngFor="let a of data" class="bg-dark">
+    <div class="container py-5 h-100">
+  
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div *ngFor="let i of a.weather" class="col-md-8 col-lg-6 col-xl-4 mb-3">
+  
+          <div class="card" style="color: #4B515D; border-radius: 35px;">
+            <div class="card-body p-4">
+  
+              <div class="d-flex">
+                <h3 class="flex-grow-1">{{a.ville}}</h3>
+                <h3>{{i.date}}</h3>
+              </div>
+  
+              <div class="d-flex flex-column text-center mt-5 mb-4">
+                <h2 class="display-4 mb-0 font-weight-bold" style="color: #1C2331;">{{i.avgtempC}}C</h2>
+                <span class="small" style="color: #868B94">{{i.hourly[0].weatherDesc[0].value}}</span>
+              </div>
+  
+              <div class="d-flex align-items-center">
+                <div class="flex-grow-1" style="font-size: 1rem;">
+                  <div> <span class="ms-1"> {{i.hourly[0].windspeedKmph}} km/h </span></div>
+                  <div> <span class="ms-1"> {{i.hourly[0].humidity}}% </span></div>
+                  <div> <span class="ms-1"> {{i.totalSnow_cm}}cm </span></div>
+                </div>
+                <div>
+                  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/ilu1.webp" width="100px">
+                </div>
+              </div>
+  
+            </div>
+          </div>
+  
+        </div>
+      </div>
+  
+    </div>
+  </section>

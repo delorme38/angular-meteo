@@ -4,6 +4,7 @@ import { injectable } from 'inversify';
 import { Response } from 'node-fetch';
 import fetch from 'node-fetch';
 
+
 const base = 'https://wttr.in/';
 
 @injectable()
@@ -20,6 +21,7 @@ export class wttrWeatherService implements WeatherProvider{
         const weathers: JSON[] = [];
         for(const location of locations){
             weathers.push(await this.readWeather(location));
+            // this._mongodbService.inserMeteo(location);
         }
         return weathers;
     }

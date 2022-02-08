@@ -9,7 +9,7 @@ export class Prev3joursComponent implements OnInit {
 
   constructor() { }
   
-  @Input() public weathers: Weather[] = [];
+  @Input() public data: WttrObject[] = [];
 
   ngOnInit(): void {
 

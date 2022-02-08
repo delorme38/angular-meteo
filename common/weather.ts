@@ -109,7 +109,7 @@ export interface Hourly {
     pressureInches: string;
     tempC: string;
     tempF: string;
-    time: string;
+    time: number;
     uvIndex: string;
     visibility: string;
     visibilityMiles: string;

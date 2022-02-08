@@ -1,15 +1,53 @@
+<!-- <nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+      <img src="/logo.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+      Meteo Wiki
+    </a>
 
-  <nav class="navbar navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/">
-        <img src="/logo.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
-        Meteo Wiki
-      </a>
-      
-        <input class="form-control me-2" type="text" [(ngModel)]="recherche" name="recherche" placeholder="" aria-label="Search">
-        <button type="button" (click)="getWeathers()">Recherche</button>
-      
-
-
+    <div>
+      <input type="text" [(ngModel)]="recherche" name="recherche" placeholder="" aria-label="Search">
+      <button type="button" class="btn btn-outline-primary" (click)="getWeathers()">Recherche</button>
     </div>
-  </nav>
+
+    <div class="input-group m-3">
+      <input type="text" class="form-control" aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default">
+      <button type="button" class="btn btn-outline-primary" (click)="getWeathers()">Recherche</button>
+    </div>
+  </div>
+</nav> -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/"><img src="favicon.ico" alt="" width="30" height="24" class="d-inline-block align-text-top">Meteo Wiki</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+       
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="text" [(ngModel)]="recherche" name="recherche" placeholder="" aria-label="recherche">
+        <button type="submit" class="btn btn-outline-primary" (click)="getWeathers()">Recherche</button>
+      </form>
+    </div>
+  </div>
+</nav>

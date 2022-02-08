@@ -1,32 +1,23 @@
+
+<div class="container-fluid shadow">
 <app-header></app-header>
 
 
 <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
 
-  <mat-tab label="Courant">
-    
-    <app-prev-actuelle *ngFor="let a of data" [data]="data" [villes]="villes"></app-prev-actuelle>
+  <mat-tab label="Courant">  
+    <app-prev-actuelle [data]="data"></app-prev-actuelle>
   </mat-tab>
 
-
   <mat-tab label="3 jours">
-    <h2 class=" shadow h2 text-center mt-3 bg-dark text-light text-uppercase m-0 p-2"> Prochains Jours:</h2>
-    <h1 class="shadow h1 text-center bg-dark text-light text-uppercase mb-4 p-2"> {{villes}} </h1>
-    <app-prev3jours class="container" *ngFor="let a of data[0].weather" [weathers]="data[0].weather"></app-prev3jours>
+    
+    <app-prev3jours [data]="data"></app-prev3jours>
   </mat-tab>
 
 
   <mat-tab label="Heures">
-    <h2 class=" shadow h2 text-center mt-3 bg-dark text-light text-uppercase m-0 p-2"> Prochaines heures:</h2>
-    <h1 class="shadow h1 text-center bg-dark text-light text-uppercase mb-4 p-2"> {{villes}} </h1>
-    <div class="container mt-5">
-    
-      <div class="row justify-content-md-center">
-        
-        <app-prev-heures class="col-3 mb-3 mr-2" *ngFor="let a of data[0].weather[0].hourly" [data]="data">
-        </app-prev-heures>
-      </div>
-    </div>
-    
+        <app-prev-heures class="col-3 mb-3 mr-2" [data]="data"></app-prev-heures>
   </mat-tab>
+  
 </mat-tab-group>
+</div>

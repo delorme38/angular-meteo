@@ -12,7 +12,7 @@
         "noImplicitAny": true,
         "noImplicitThis": true,
         "noFallthroughCasesInSwitch": true,
-        "noUnusedLocals": false, //TODO mettre à true une fois les autres TODO terminés
+        "noUnusedLocals": true, //TODO mettre à true une fois les autres TODO terminés
         "noImplicitReturns": true,
         "suppressImplicitAnyIndexErrors": true,
         "strictNullChecks": true

@@ -57,7 +57,7 @@ export class WeatherController{
             //pour retourner la météo
             console.log('router.get', req.locations);
             const data = await this._weatherService.readWeathers(req.locations);
-            console.log(data);
+            // console.log(data);
             res.json(data);
         });
         

@@ -1,37 +1,77 @@
-<div class="container col-3">
-  <div class="card m-2 shadow-lg bg-primary">
-    <div class="card-body text-white p-0">
-      <ul class="list-group">
-        <li class="list-group-item active">
-          <h2 class="h2 text-uppercase"> {{villes}}</h2>
-        </li>
-        <li class="list-group-item">
-          <h6>Temperature:</h6> <span class="float-end">{{ data[0].weather[0].hourly[0].tempC }}C
-            (ressentie {{
-            data[0].current_condition[0].FeelsLikeC }}C)</span>
-        </li>
-        <li class="list-group-item">
-          <h6>Conditions:</h6> <span class="float-end">{{
-            data[0].current_condition[0].weatherDesc[0].value
-            }}</span>
-        </li>
-        <li class="list-group-item">
-          <h6>Vents:</h6> <span class="float-end">{{data[0].current_condition[0].windspeedKmph}}Km/h
-          </span>
-        </li>
-        <li class="list-group-item">
-          <h6>Visibilité:</h6> <span class="float-end">{{data[0].current_condition[0].visibility}}Km</span>
-        </li>
-        <li class="list-group-item">
-          <h6>Humidité:</h6><span class="float-end">{{data[0].current_condition[0].humidity}}%</span>
-        </li>
-        <li class="list-group-item">
-          <h6>Précipitations:</h6> <span class="float-end">{{data[0].current_condition[0].precipMM}}
-            mm</span>
-        </li>
-        <small class="small">Dernière observation:
-          {{data[0].current_condition[0].localObsDateTime}}<span class="float-end"></span></small>
-      </ul>
+<!-- <div class="row justify-content-md-center mt-3">
+  <div *ngFor="let a of data" class="container col-3">
+    <div class="card m-2 shadow-lg bg-primary">
+      <div class="card-body text-white p-0">
+        <ul class="list-group">
+          <li class="list-group-item active">
+            <h2 class="h2 text-uppercase"> {{a.ville}}</h2>
+          </li>
+          <li class="list-group-item">
+            <h6>Temperature:</h6> <span class="float-end">{{ a.weather[0].hourly[0].tempC }}C
+              (ressentie {{
+              a.current_condition[0].FeelsLikeC }}C)</span>
+          </li>
+          <li class="list-group-item">
+            <h6>Conditions:</h6> <span class="float-end">{{
+              a.current_condition[0].weatherDesc[0].value
+              }}</span>
+          </li>
+          <li class="list-group-item">
+            <h6>Vents:</h6> <span class="float-end">{{a.current_condition[0].windspeedKmph}}Km/h
+            </span>
+          </li>
+          <li class="list-group-item">
+            <h6>Visibilité:</h6> <span class="float-end">{{a.current_condition[0].visibility}}Km</span>
+          </li>
+          <li class="list-group-item">
+            <h6>Humidité:</h6><span class="float-end">{{a.current_condition[0].humidity}}%</span>
+          </li>
+          <li class="list-group-item">
+            <h6>Précipitations:</h6> <span class="float-end">{{a.current_condition[0].precipMM}}
+              mm</span>
+          </li>
+          <small class="small">Dernière observation:
+            {{a.current_condition[0].localObsDateTime}}<span class="float-end"></span></small>
+        </ul>
+      </div>
     </div>
-  </div>
+  </div> -->
 
+<section *ngFor="let a of data" class="bg-dark">
+  <div class="container py-5 h-100">
+
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-8 col-lg-6 col-xl-4 mb-3">
+
+        <div class="card" style="color: #4B515D; border-radius: 35px;">
+          <div class="card-body p-4">
+
+            <div class="d-flex">
+              <h3 class="flex-grow-1">{{a.ville}}</h3>
+              <h3>{{a.current_condition[0].observation_time}}</h3>
+            </div>
+
+            <div class="d-flex flex-column text-center mt-5 mb-4">
+              <h2 class="display-4 mb-0 font-weight-bold" style="color: #1C2331;">{{a.weather[0].hourly[0].tempC}}C</h2>
+              <span class="small" style="color: #868B94">{{a.current_condition[0].weatherDesc[0].value}}</span>
+            </div>
+
+            <div class="d-flex align-items-center">
+              <div class="flex-grow-1" style="font-size: 1rem;">
+                <div> <span class="ms-1"> {{a.current_condition[0].windspeedKmph}} km/h </span></div>
+                <div> <span class="ms-1"> {{a.current_condition[0].humidity}}% </span></div>
+                <div> <span class="ms-1"> {{a.current_condition[0].precipMM}}Mm </span></div>
+              </div>
+              <div>
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/ilu1.webp" width="100px">
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
