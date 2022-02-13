@@ -3,7 +3,7 @@ import { inject, injectable } from 'inversify';
 import { WeatherProvider } from '../interfaces';
 import { AuthService } from '../services/auth.service';
 import { TYPES } from '../types';
-import { WttrObject } from '../../../common/weather';
+
 
 @injectable()
 export class WeatherController{
@@ -44,8 +44,7 @@ export class WeatherController{
             let locationsString = req.query.locations;
             if(typeof locationsString !== 'string'){
                 locationsString = this._defaultLocation;
-            } 
-            console.log('router.use', req.locations);
+            }
             //On conserve les locations dans la requête
             req.locations = locationsString.split(',');
             next();
@@ -55,9 +54,7 @@ export class WeatherController{
         router.get('/',this.authHandler,async (req:Request, res: Response) => {
             //TODO utilisez req.locations et _weatherService.readWeathers
             //pour retourner la météo
-            console.log('router.get', req.locations);
             const data = await this._weatherService.readWeathers(req.locations);
-            // console.log(data);
             res.json(data);
         });
         

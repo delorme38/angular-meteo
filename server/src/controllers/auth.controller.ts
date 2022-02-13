@@ -1,7 +1,5 @@
-import { hash } from 'bcrypt';
 import { Router, Request, Response } from 'express';
 import { inject, injectable } from 'inversify';
-import { token } from 'morgan';
 import { Authentification } from '../../../common/authentification';
 import { UserDTO } from '../../../common/user';
 import { User } from '../interfaces';
@@ -30,19 +28,16 @@ export class AuthController {
         // -> /api/v1/auth/loggin
         router.post('/login', async (req: Request, res: Response) => {
             const auth: Authentification = req.body;
-            const user: User | null = await this._mongodbService.getUserByUsername(auth.username);
+            const user: User | null = await this._mongodbService.getUserByUsername(auth.username.toLowerCase());
             if (!user) {
-                console.log('erreur 1');
                 res.status(403).send('Mauvais nom d\'utilisateur ou mot de passe');
             } else {
                 if (user?.hash) {
                     if (await this._authService.isPasswordValid(auth.password, user?.hash)) {
-                        console.log('password valid creation du token');
                         user.token = this._authService.generateToken(user._id);
-                        console.log('token creer res.json:');
                         res.json(<UserDTO>user);
                     } else {
-                        console.log('erreur 2');
+                        console.log('bad password');
                         res.status(403).send('Mauvais nom d\'utilisateur ou mot de passe');
                     }
                 }
@@ -64,13 +59,11 @@ export class AuthController {
 
 
             const auth: Authentification = req.body;
-            console.log('Signup new user');
-            if (await this._mongodbService.getUserByUsername(auth.username)) {
-                console.log('utilisateur deja present');
+            if (await this._mongodbService.getUserByUsername(auth.username.toLowerCase())) {
                 res.status(500).send('Utilisateur existe deja');
             } else {
                 const hasher = await this._authService.encryptPassword(auth.password);
-                const nvUser: User | null = await this._mongodbService.createUser(auth.username, hasher);
+                const nvUser: User | null = await this._mongodbService.createUser(auth.username.toLowerCase(), hasher);
                 if (nvUser !== null) {
                     nvUser.hash = await this._authService.encryptPassword(auth.password);
                     nvUser.token = this._authService.generateToken(nvUser?._id);

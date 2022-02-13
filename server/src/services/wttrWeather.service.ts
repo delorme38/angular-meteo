@@ -1,7 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 import { WeatherProvider } from '../interfaces';
 import { injectable } from 'inversify';
-import { Response } from 'node-fetch';
 import fetch from 'node-fetch';
 
 
@@ -21,15 +20,14 @@ export class wttrWeatherService implements WeatherProvider{
         const weathers: JSON[] = [];
         for(const location of locations){
             weathers.push(await this.readWeather(location));
-            // this._mongodbService.inserMeteo(location);
         }
         return weathers;
     }
     
     //Retourne la météo pour une ville
     async readWeather(location: string): Promise<JSON> {
-        const response: any = await (await fetch(`${base}/${location}?format=j1&lang=fr`)).json();
-        response.ville = location;  //j'ai mit un type any au lieu de Response parceque je n'arrive pas a manipuler mon json sinon
+        const response: JSON = await (await fetch(`${base}/${location}?format=j1&lang=fr`)).json();
+        response['ville'] = location;
         return response;
     }
 

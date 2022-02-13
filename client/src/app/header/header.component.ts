@@ -19,14 +19,12 @@ export class HeaderComponent implements OnInit {
   }
 
   getWeathers(): void {
-    console.log('Header getWeathers() function:', this.recherche);
+    
     this._weatherService.getWeathers(this.recherche).subscribe({
       next: data => {
         this.meteo.data = data;
-        console.log(data);
         this.villes = this.recherche.split(',');
         this.meteo.villes = this.villes;
-        console.log(this.villes);
       },
       error: err => console.log(err)
     });
