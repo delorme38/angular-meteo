@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { WeatherService } from '../weather.service';
-import { WttrObject, Weather } from '../../../../common/weather';
-import { Head, Observable } from 'rxjs';
+import { WttrObject } from '../../../../common/weather';
 import { environment } from 'src/environments/environment';
 
 @Component({

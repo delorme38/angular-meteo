@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { WttrObject } from '../../../../common/weather';
 import { WeatherService } from '../weather.service';
 import { MeteoComponent } from '../meteo/meteo.component';
 

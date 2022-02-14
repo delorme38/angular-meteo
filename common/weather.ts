@@ -30,6 +30,11 @@ export interface CurrentCondition {
     winddirDegree: string;
     windspeedKmph: string;
     windspeedMiles: string;
+    lang_fr: lang_fr[];
+}
+
+export interface lang_fr {
+    value: string;
 }
 
 export interface AreaName {
@@ -142,6 +147,6 @@ export interface WttrObject {
     nearest_area: NearestArea[];
     request: Request[];
     weather: Weather[];
-    ville?: string[];
+    ville?: string;
 }
 

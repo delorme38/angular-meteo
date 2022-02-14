@@ -26,6 +26,7 @@ export class AuthController {
         //TODO Retourner les informations de l'utilisateur sans le hash (voir interface UserDTO) 
         //TODO Trouver l'utilisateur dans la BD, si l'utilisateur est null retournez le code 403
         // -> /api/v1/auth/loggin
+        
         router.post('/login', async (req: Request, res: Response) => {
             const auth: Authentification = req.body;
             const user: User | null = await this._mongodbService.getUserByUsername(auth.username.toLowerCase());
@@ -55,9 +56,8 @@ export class AuthController {
         //TODO Générer le jeton de l'utilisateur à l'aide du service auth.service
         //TODO Retourner les informations de l'utilisateur sans le hash (voir interface UserDTO)
         // -> /api/v1/auth/signup
+
         router.post('/signup', async (req: Request, res: Response) => {
-
-
             const auth: Authentification = req.body;
             if (await this._mongodbService.getUserByUsername(auth.username.toLowerCase())) {
                 res.status(500).send('Utilisateur existe deja');

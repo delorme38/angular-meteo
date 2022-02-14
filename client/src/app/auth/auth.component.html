@@ -1,12 +1,23 @@
-<p>Vous devez vous connecter!</p>
-<form #authForm="ngForm">
-    <div>
-        <input name="username" type="text" placeholder="Nom utilisateur" required ngModel>
+
+<div class="container mt-5">
+    
+    <div class="row d-flex justify-content-center">
+        
+        <div class="col-md-6">
+            <h1 class="text-center">Vous devez vous connecter pour entrer!</h1>
+            <form #authForm="ngForm" class="forms-inputs mb-4 text-center">
+                <div class="mb-2">
+                    <input class="w-100" name="username" type="text" placeholder="Nom utilisateur" required ngModel>
+                </div>
+               
+                <div class="mb-4">
+                    <input class="w-100" name="password" type="password" placeholder="Mot de passe" required ngModel>
+                </div>
+               
+                <button class="btn btn-dark w-25" (click)="login(authForm)" [disabled]="!authForm.valid">Se connecter</button> | <button class="btn btn-dark w-25"
+                    [disabled]="!authForm.valid" (click)="signup(authForm)">S'inscrire </button>
+            </form>
+        </div>
     </div>
-    <br>
-    <div>
-        <input name="password" type="password" placeholder="Mot de passe" required ngModel>
-    </div>
-    <br>
-    <button (click)="login(authForm)" [disabled]="!authForm.valid">Se connecter</button> | <button [disabled]="!authForm.valid" (click)="signup(authForm)">S'inscrire </button>
-</form>
+</div>
+
