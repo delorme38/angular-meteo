@@ -4,7 +4,7 @@
   "description": "",
   "main": "./server/src/www.ts",
   "scripts": {
-    "start": "npx -e .ts,.hbs ./server/src/www.ts",
+    "start": "npx nodemon -e .ts,.hbs ./src/www.ts",
     "lint": "npx eslint src",
     "fix": "npx eslint --fix src",
     "test": "echo \"Error: no test specified\" && exit 1"
