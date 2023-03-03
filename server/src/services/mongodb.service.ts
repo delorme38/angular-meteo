@@ -16,10 +16,12 @@ export class MongodbService {
 
     constructor() {
         //Pourrait causer des problèmes en production
-        this._client.connect();
-        //Collection à utiliser
-        this._collection = this._client.db('tp2').collection<User>('users');
-        // this._meteo = this._client.db('tp2').collection<WttrObject>('meteo');
+        if (this._client != null) {
+            this._client.connect();
+            //Collection à utiliser
+            this._collection = this._client.db('tp2').collection<User>('users');
+            // this._meteo = this._client.db('tp2').collection<WttrObject>('meteo');
+        }
     }
 
     //TODO Trouver l'utilisateur en fonction de son nom d'utilisateur
