@@ -46,9 +46,6 @@ export class MongodbService {
             return this._collection.findOne({ username });
         }
         return null;
-
-
-
     }
 
     // async inserMeteo(location: string) {
