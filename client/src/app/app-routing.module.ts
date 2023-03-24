@@ -11,14 +11,13 @@ const routes: Routes = [
 
   //canActivate: [AuthGuard] permet de bloquer 
   //une route si l'utilisateur n'est pas login
-  //TODO vous pouvez retirer temporairement le guard pour développer
   {path:'weather', component: MeteoComponent, canActivate: [AuthGuard]},
 
   //Route pour la page d'authentification
   {path:'auth', component: AuthComponent },
 
 
-  //TODO Ajouter les autres routes au besoin
+  //Ajouter d'autres routes au besoin
 ];
 
 @NgModule({
